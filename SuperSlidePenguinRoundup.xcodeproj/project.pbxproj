@@ -15,6 +15,7 @@
 		3A99695A20C75E24007F6255 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A99695820C75E24007F6255 /* Main.storyboard */; };
 		3A99695C20C75E2A007F6255 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A99695B20C75E2A007F6255 /* Assets.xcassets */; };
 		3A99695F20C75E2A007F6255 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A99695D20C75E2A007F6255 /* LaunchScreen.storyboard */; };
+		3A99696720C75E77007F6255 /* MyTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A99696620C75E77007F6255 /* MyTileSet.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		3A99695B20C75E2A007F6255 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A99695E20C75E2A007F6255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A99696020C75E2A007F6255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A99696620C75E77007F6255 /* MyTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyTileSet.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				3A99694E20C75E24007F6255 /* AppDelegate.swift */,
 				3A99695020C75E24007F6255 /* GameScene.sks */,
+				3A99696620C75E77007F6255 /* MyTileSet.sks */,
 				3A99695220C75E24007F6255 /* Actions.sks */,
 				3A99695420C75E24007F6255 /* GameScene.swift */,
 				3A99695620C75E24007F6255 /* GameViewController.swift */,
@@ -131,6 +134,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A99696720C75E77007F6255 /* MyTileSet.sks in Resources */,
 				3A99695A20C75E24007F6255 /* Main.storyboard in Resources */,
 				3A99695120C75E24007F6255 /* GameScene.sks in Resources */,
 				3A99695C20C75E2A007F6255 /* Assets.xcassets in Resources */,
@@ -294,6 +298,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SuperSlidePenguinRoundup/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,6 +316,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SuperSlidePenguinRoundup/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

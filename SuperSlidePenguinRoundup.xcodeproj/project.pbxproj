@@ -116,6 +116,9 @@
 		3A99694320C75E23007F6255 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					"<#returnType#>(^<#blockName#>)(<#parameterTypes#>) = ^(<#parameters#>) {\n    <#statements#>\n};",
+				);
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Drew Vandyke";

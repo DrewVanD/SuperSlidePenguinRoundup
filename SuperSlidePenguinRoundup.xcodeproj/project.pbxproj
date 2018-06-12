@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A54258B20C8989800BD3E55 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A54258A20C8989800BD3E55 /* Extensions.swift */; };
+		3A54258E20C89AAA00BD3E55 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A54258D20C89AAA00BD3E55 /* Player.swift */; };
 		3A99694F20C75E24007F6255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A99694E20C75E24007F6255 /* AppDelegate.swift */; };
 		3A99695120C75E24007F6255 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A99695020C75E24007F6255 /* GameScene.sks */; };
 		3A99695320C75E24007F6255 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A99695220C75E24007F6255 /* Actions.sks */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A54258A20C8989800BD3E55 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3A54258D20C89AAA00BD3E55 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		3A99694B20C75E24007F6255 /* SuperSlidePenguinRoundup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperSlidePenguinRoundup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A99694E20C75E24007F6255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A99695020C75E24007F6255 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -43,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A54258C20C899AC00BD3E55 /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				3A54258D20C89AAA00BD3E55 /* Player.swift */,
+			);
+			path = Characters;
+			sourceTree = "<group>";
+		};
 		3A99694220C75E23007F6255 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +74,7 @@
 		3A99694D20C75E24007F6255 /* SuperSlidePenguinRoundup */ = {
 			isa = PBXGroup;
 			children = (
+				3A54258C20C899AC00BD3E55 /* Characters */,
 				3A99694E20C75E24007F6255 /* AppDelegate.swift */,
 				3A99695020C75E24007F6255 /* GameScene.sks */,
 				3A99696620C75E77007F6255 /* MyTileSet.sks */,
@@ -72,6 +85,7 @@
 				3A99695B20C75E2A007F6255 /* Assets.xcassets */,
 				3A99695D20C75E2A007F6255 /* LaunchScreen.storyboard */,
 				3A99696020C75E2A007F6255 /* Info.plist */,
+				3A54258A20C8989800BD3E55 /* Extensions.swift */,
 			);
 			path = SuperSlidePenguinRoundup;
 			sourceTree = "<group>";
@@ -153,6 +167,8 @@
 				3A99695520C75E24007F6255 /* GameScene.swift in Sources */,
 				3A99695720C75E24007F6255 /* GameViewController.swift in Sources */,
 				3A99694F20C75E24007F6255 /* AppDelegate.swift in Sources */,
+				3A54258E20C89AAA00BD3E55 /* Player.swift in Sources */,
+				3A54258B20C8989800BD3E55 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

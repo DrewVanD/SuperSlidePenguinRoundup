@@ -22,6 +22,7 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView){
         loadSceneNodes()
+        setupCamera()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -49,7 +50,14 @@ class GameScene: SKScene {
         super.init(size: size)
     }
     
-    
+    func setupCamera(){
+        guard let camera = camera else { return }
+        
+        let zeroDistance = SKRange(constantValue: 0)
+        let playerConstraint = SKConstraint.distance(zeroDistance, to: player)
+        
+        camera.constraints = [playerConstraint]
+    }
     
     func sceneTouched(touchLocation: CGPoint){
         lastTouchLocation = touchLocation

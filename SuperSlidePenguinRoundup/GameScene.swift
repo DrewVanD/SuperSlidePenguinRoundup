@@ -23,16 +23,12 @@ struct PhysicsCategory{
     static let None: UInt32 = 0 //0
     static let Rock: UInt32 = 0b1 //1
     static let Penguin: UInt32 = 0b10 //2
-    static let Bear: UInt32 = 0b100 //4
+    static let BabyPenguin: UInt32 = 0b100 //4
     static let Finish: UInt32 = 0b1000 //8
-   
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     //Tile Maps
-    var rockTileMapNode: SKTileMapNode = SKTileMapNode()
-    var iceTileMapNode: SKTileMapNode = SKTileMapNode()
-    var iceRockTileMapNode: SKTileMapNode = SKTileMapNode()
     var rockTileMap: SKTileMapNode?
     
     //Player Variables
@@ -40,10 +36,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var player = Player()
     var canMove = true
     var isMoving = false
+    var currentLevel: Int = 0
     
     //Timers
     var lastUpdateTime: TimeInterval = 0
     var deltaTime: TimeInterval = 0
+    
+    class func level(levelNum: Int) -> GameScene? {
+        //let scene = GameScene(fileNamed: "Level\(levelNum)")!
+        let scene = GameScene(fileNamed: "Level\(levelNum)")
+        scene?.currentLevel = levelNum
+        scene?.scaleMode = .aspectFill
+        return scene
+    }
     
     override func didMove(to view: SKView){
         
@@ -55,17 +60,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.physicsBody?.collisionBitMask = 3
         player.scale(to: CGSize(width: 30, height: 30))
         physicsWorld.contactDelegate = self
-        for node in self.children {
-            if node.name == "Ice" {
-                iceTileMapNode = node as! SKTileMapNode
-            }
-            else if node.name == "Rock" {
-                rockTileMapNode = node as! SKTileMapNode
-            }
-            else if node.name == "IceRock" {
-                iceRockTileMapNode = node as! SKTileMapNode
-            }
-        }
         
         enumerateChildNodes(withName: "//*"){ node, _ in
             if let interactiveNode = node as? ButtonNode {
@@ -74,30 +68,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         NotificationCenter.default.addObserver(self, selector: #selector(playerMovement), name: Notification.Name(ButtonNode.buttonTappedNotification), object: nil)
         setupCamera()
+        rockTileMap = childNode(withName: "Rock") as? SKTileMapNode
         setupObstaclePhysics()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        rockTileMap = childNode(withName: "Rock") as? SKTileMapNode
-    }
     
     func didBegin(_ contact: SKPhysicsContact ){
         
         let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        
+        if collision == PhysicsCategory.Penguin | PhysicsCategory.BabyPenguin {
+            print("Win!")
+            win()
+        }
         
         if collision == PhysicsCategory.Penguin | PhysicsCategory.Rock{
         print("Contact Made!")
           player.stop()
             isMoving = false
         }
-    }
-   
-    
-    override init(size: CGSize){
-        //let maxAspectRatio: CGFloat = 16.0/9.0
         
-        super.init(size: size)
+        
     }
     
     func setupCamera(){
@@ -164,6 +155,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print(player.zRotation)
     }
     
+    func win() {
+        inGameMessage(text: "You Win, Buddy!")
+      run(SKAction.afterDelay(3, runBlock: newGame))
+    }
+    
+    func inGameMessage(text:String){
+        let message = MessageNode(message: text)
+        message.position = CGPoint(x: frame.midX, y: frame.midY)
+        addChild(message)
+    }
     
     override func update(_ currentTime: TimeInterval) {
         if lastUpdateTime > 0 {
@@ -175,5 +176,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         lastUpdateTime = currentTime
         
         
+    }
+    
+    func newGame(){
+        currentLevel += 1
+        view!.presentScene(GameScene.level(levelNum: currentLevel))
     }
 }

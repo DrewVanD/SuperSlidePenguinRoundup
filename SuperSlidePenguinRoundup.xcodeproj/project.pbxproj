@@ -68,6 +68,16 @@
 		3A99696620C75E77007F6255 /* MyTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyTileSet.sks; sourceTree = "<group>"; };
 		3AA7355E20D20EEB00172DC9 /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level2.sks; sourceTree = "<group>"; };
 		3AE6CE1220D9FEB30056B9DF /* MessageNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageNode.swift; sourceTree = "<group>"; };
+		EEC67C0120DADF39000C4EDC /* World3_Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = World3_Level2.sks; path = /Users/lukemalcolm/Documents/GitHub/SuperSlidePenguinRoundup/SuperSlidePenguinRoundup/World3_Level2.sks; sourceTree = "<absolute>"; };
+		EEC67C0220DADF3A000C4EDC /* World3_Level4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = World3_Level4.sks; path = /Users/lukemalcolm/Documents/GitHub/SuperSlidePenguinRoundup/SuperSlidePenguinRoundup/World3_Level4.sks; sourceTree = "<absolute>"; };
+		EEC67C0320DADF3A000C4EDC /* World3_Level7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = World3_Level7.sks; path = /Users/lukemalcolm/Documents/GitHub/SuperSlidePenguinRoundup/SuperSlidePenguinRoundup/World3_Level7.sks; sourceTree = "<absolute>"; };
+		EEC67C0420DADF3A000C4EDC /* World3_Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = World3_Level1.sks; path = /Users/lukemalcolm/Documents/GitHub/SuperSlidePenguinRoundup/SuperSlidePenguinRoundup/World3_Level1.sks; sourceTree = "<absolute>"; };
+		EEC67C0520DADF3A000C4EDC /* World3_Level9.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = World3_Level9.sks; path = /Users/lukemalcolm/Documents/GitHub/SuperSlidePenguinRoundup/SuperSlidePenguinRoundup/World3_Level9.sks; sourceTree = "<absolute>"; };
+		EEC67C0620DADF3A000C4EDC /* World3_Level3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = World3_Level3.sks; path = /Users/lukemalcolm/Documents/GitHub/SuperSlidePenguinRoundup/SuperSlidePenguinRoundup/World3_Level3.sks; sourceTree = "<absolute>"; };
+		EEC67C0720DADF3B000C4EDC /* World3_Level10.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = World3_Level10.sks; path = /Users/lukemalcolm/Documents/GitHub/SuperSlidePenguinRoundup/SuperSlidePenguinRoundup/World3_Level10.sks; sourceTree = "<absolute>"; };
+		EEC67C0820DADF3B000C4EDC /* World3_Level5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = World3_Level5.sks; path = /Users/lukemalcolm/Documents/GitHub/SuperSlidePenguinRoundup/SuperSlidePenguinRoundup/World3_Level5.sks; sourceTree = "<absolute>"; };
+		EEC67C0920DADF3B000C4EDC /* World3_Level8.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = World3_Level8.sks; path = /Users/lukemalcolm/Documents/GitHub/SuperSlidePenguinRoundup/SuperSlidePenguinRoundup/World3_Level8.sks; sourceTree = "<absolute>"; };
+		EEC67C0A20DADF3B000C4EDC /* World3_Level6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = World3_Level6.sks; path = /Users/lukemalcolm/Documents/GitHub/SuperSlidePenguinRoundup/SuperSlidePenguinRoundup/World3_Level6.sks; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +150,16 @@
 			children = (
 				3A42251120D452630035C793 /* SKTUtils */,
 				3A1C75D020D2F49C0043FF3B /* Scenes */,
+				EEC67C0420DADF3A000C4EDC /* World3_Level1.sks */,
+				EEC67C0120DADF39000C4EDC /* World3_Level2.sks */,
+				EEC67C0620DADF3A000C4EDC /* World3_Level3.sks */,
+				EEC67C0220DADF3A000C4EDC /* World3_Level4.sks */,
+				EEC67C0820DADF3B000C4EDC /* World3_Level5.sks */,
+				EEC67C0A20DADF3B000C4EDC /* World3_Level6.sks */,
+				EEC67C0320DADF3A000C4EDC /* World3_Level7.sks */,
+				EEC67C0920DADF3B000C4EDC /* World3_Level8.sks */,
+				EEC67C0520DADF3A000C4EDC /* World3_Level9.sks */,
+				EEC67C0720DADF3B000C4EDC /* World3_Level10.sks */,
 				3A54258C20C899AC00BD3E55 /* Characters */,
 				3A99694E20C75E24007F6255 /* AppDelegate.swift */,
 				3A99696620C75E77007F6255 /* MyTileSet.sks */,

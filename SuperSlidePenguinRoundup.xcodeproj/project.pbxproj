@@ -38,6 +38,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1100ABB520DADE8B0042DD83 /* SunnyL4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = SunnyL4.sks; path = /Users/sunnessaormerod/Documents/GitHub/SuperSlidePenguinRoundup/SuperSlidePenguinRoundup/Scenes/SunnyL4.sks; sourceTree = "<absolute>"; };
+		1100ABB620DADE8B0042DD83 /* SunnyL3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = SunnyL3.sks; path = /Users/sunnessaormerod/Documents/GitHub/SuperSlidePenguinRoundup/SuperSlidePenguinRoundup/Scenes/SunnyL3.sks; sourceTree = "<absolute>"; };
+		1100ABB720DADE8B0042DD83 /* SunnyL6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = SunnyL6.sks; path = /Users/sunnessaormerod/Documents/GitHub/SuperSlidePenguinRoundup/SuperSlidePenguinRoundup/Scenes/SunnyL6.sks; sourceTree = "<absolute>"; };
+		1100ABB820DADE8C0042DD83 /* SunnyL1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = SunnyL1.sks; path = /Users/sunnessaormerod/Documents/GitHub/SuperSlidePenguinRoundup/SuperSlidePenguinRoundup/Scenes/SunnyL1.sks; sourceTree = "<absolute>"; };
+		1100ABB920DADE8C0042DD83 /* SunnyL2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = SunnyL2.sks; path = /Users/sunnessaormerod/Documents/GitHub/SuperSlidePenguinRoundup/SuperSlidePenguinRoundup/Scenes/SunnyL2.sks; sourceTree = "<absolute>"; };
+		1100ABBA20DADE8C0042DD83 /* SunnyL5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = SunnyL5.sks; path = /Users/sunnessaormerod/Documents/GitHub/SuperSlidePenguinRoundup/SuperSlidePenguinRoundup/Scenes/SunnyL5.sks; sourceTree = "<absolute>"; };
 		3A0EFFFA20D3299800D8CA01 /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
 		3A0EFFFC20D349C100D8CA01 /* Level4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level4.sks; sourceTree = "<group>"; };
 		3A42251220D452630035C793 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
@@ -86,8 +92,14 @@
 			children = (
 				3A99695020C75E24007F6255 /* Level1.sks */,
 				3AA7355E20D20EEB00172DC9 /* Level2.sks */,
+				1100ABB920DADE8C0042DD83 /* SunnyL2.sks */,
 				3A8BF0D020D29C9B0080CC2B /* Level3.sks */,
 				3A0EFFFC20D349C100D8CA01 /* Level4.sks */,
+				1100ABB820DADE8C0042DD83 /* SunnyL1.sks */,
+				1100ABB620DADE8B0042DD83 /* SunnyL3.sks */,
+				1100ABB520DADE8B0042DD83 /* SunnyL4.sks */,
+				1100ABBA20DADE8C0042DD83 /* SunnyL5.sks */,
+				1100ABB720DADE8B0042DD83 /* SunnyL6.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";

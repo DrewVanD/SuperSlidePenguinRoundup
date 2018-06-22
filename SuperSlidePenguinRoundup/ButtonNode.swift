@@ -18,9 +18,10 @@ class ButtonNode: SKSpriteNode, EventListenerNode, InteractiveNode {
     }
     
     func interact() {
+        //sends what button is being pressed back to the game scene
         NotificationCenter.default.post(name: NSNotification.Name(ButtonNode.buttonTappedNotification), object: nil, userInfo: [AnyHashable("button"): buttonName])
     }
-    
+    //reads the screen and tell which button node is being touched
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         let touch = touches.first!

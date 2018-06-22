@@ -22,7 +22,7 @@ class Player: SKSpriteNode {
     
     
     init() {
-        let texture = SKTexture(pixelImageNamed: "Penguin")
+        let texture = SKTexture(pixelImageNamed: "Farley2feet")
         
         super.init(texture: texture, color: .white, size: texture.size())
         name = "Player"

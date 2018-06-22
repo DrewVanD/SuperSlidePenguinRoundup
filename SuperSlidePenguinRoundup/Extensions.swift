@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-extension SKTexture {
+extension SKTexture { //Adjusts the Image to a higher quality
     convenience init(pixelImageNamed: String) {
         self.init(imageNamed: pixelImageNamed)
         self.filteringMode = .nearest

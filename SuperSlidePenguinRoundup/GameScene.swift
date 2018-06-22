@@ -19,7 +19,7 @@ protocol EventListenerNode {
     func didMoveToScene()
 }
 
-struct PhysicsCategory{
+struct PhysicsCategory{ //set the the physics Masks
     static let None: UInt32 = 0 //0
     static let Rock: UInt32 = 0b1 //1
     static let Penguin: UInt32 = 0b10 //2
@@ -34,14 +34,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //Player Variables
     var startPoint: SKSpriteNode!
     var player = Player()
-    var canMove = true
-    var isMoving = false
-    var currentLevel: Int = 0
+    var canMove = true //lets the player move if it is time to
+    var isMoving = false //tells the movement func if the player is already moving
+    var currentLevel: Int = 0 //Conntrols the games level
     
     //Timers
     var lastUpdateTime: TimeInterval = 0
     var deltaTime: TimeInterval = 0
     
+    //Changes the Level called by the newGame()
     class func level(levelNum: Int) -> GameScene? {
         //let scene = GameScene(fileNamed: "Level\(levelNum)")!
         let scene = GameScene(fileNamed: "Level\(levelNum)")
@@ -52,7 +53,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView){
         
+        //Finds and unwraps the Spawn point of the player
         startPoint = childNode(withName: "StartPoint") as! SKSpriteNode
+        
+        //Player positioning settings
         addChild(player)
         player.position = startPoint.position
         player.zPosition = 1
@@ -61,18 +65,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.scale(to: CGSize(width: 30, height: 30))
         physicsWorld.contactDelegate = self
         
+        //collects all the childNodes available in the scene
         enumerateChildNodes(withName: "//*"){ node, _ in
             if let interactiveNode = node as? ButtonNode {
                 interactiveNode.didMoveToScene()
             }
         }
+        
+        //sets up and observers to read when a buttonNode has been clicked
         NotificationCenter.default.addObserver(self, selector: #selector(playerMovement), name: Notification.Name(ButtonNode.buttonTappedNotification), object: nil)
+        
         setupCamera()
+        
+        //Unwraps the Rocktile map to make it available for Physics
         rockTileMap = childNode(withName: "Rock") as? SKTileMapNode
         setupObstaclePhysics()
     }
     
-    
+    //When contact is made checks to see what two objects connected and fires accordingly
     func didBegin(_ contact: SKPhysicsContact ){
         
         let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
@@ -90,7 +100,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
     }
-    
+    //Camera Follows the player
     func setupCamera(){
         guard let camera = camera else { return }
         
@@ -99,7 +109,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         camera.constraints = [playerConstraint]
     }
-    
+    //Goes through the Rock Tile Map and gives each tile its own physics body
     func setupObstaclePhysics(){
         guard let rockTileMap = rockTileMap else { return }
         var physicsBodies = [SKPhysicsBody]()
@@ -112,6 +122,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 physicsBodies.append(body)
             }
         }
+        //RockTile Physic Settings
         rockTileMap.physicsBody = SKPhysicsBody(bodies: physicsBodies)
         rockTileMap.physicsBody?.isDynamic = false
         rockTileMap.physicsBody?.friction = 1
@@ -122,10 +133,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    //Tells setupObstaclePhysics() what the definition of a single node is
     func tile(in tileMap: SKTileMapNode, at coordinates: TileCoordinates) -> SKTileDefinition? {
         return tileMap.tileDefinition(atColumn: coordinates.column, row: coordinates.row)
     }
    
+    //Rotates the player in the 4 cardinal directions with a Dpad
     @objc func playerMovement(notification: NSNotification) {
         guard let buttonName: String = notification.userInfo?["button"] as? String else {
             return
@@ -147,7 +160,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if buttonName == "Slide"
         {
-            if !isMoving {
+            if !isMoving { //protects from the player cheating and moving while on the path
             player.move()
             isMoving = true
             }
@@ -155,12 +168,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print(player.zRotation)
     }
     
-    func win() {
+    func win() { //present message and fire newGame() after 3 sec
         inGameMessage(text: "You Win, Buddy!")
       run(SKAction.afterDelay(3, runBlock: newGame))
     }
     
-    func inGameMessage(text:String){
+    func inGameMessage(text:String){ // Shows message to the player
         let message = MessageNode(message: text)
         message.position = CGPoint(x: frame.midX, y: frame.midY)
         addChild(message)
@@ -179,7 +192,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     }
     
-    func newGame(){
+    func newGame(){ //increments the Levels and ressets the Scene
         currentLevel += 1
         view!.presentScene(GameScene.level(levelNum: currentLevel))
     }

@@ -165,6 +165,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         message.position = CGPoint(x: frame.midX, y: frame.midY)
         addChild(message)
     }
+
     
     override func update(_ currentTime: TimeInterval) {
         if lastUpdateTime > 0 {
@@ -175,7 +176,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         lastUpdateTime = currentTime
         
-        
+
     }
     
     func newGame(){

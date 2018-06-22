@@ -193,7 +193,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func newGame(){ //increments the Levels and ressets the Scene
-        currentLevel += 1
+        if currentLevel < 7 {
+            currentLevel += 1
+        }
+        else{
+            currentLevel = 1
+        }
         view!.presentScene(GameScene.level(levelNum: currentLevel))
     }
 }

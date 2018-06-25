@@ -41,6 +41,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var contactMade = false
     var currentLevel: Int = 0 //Conntrols the games level
     
+    //Enemy Variables
+    var enemyStartPoint: SKSpriteNode!
+    var enemy = Enemy()
+    
     //Timers
     var lastUpdateTime: TimeInterval = 0
     var deltaTime: TimeInterval = 0
@@ -58,15 +62,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //Finds and unwraps the Spawn point of the player
         startPoint = childNode(withName: "StartPoint") as! SKSpriteNode
+        enemyStartPoint = childNode(withName: "enemyStartPoint") as! SKSpriteNode
         
         //Player positioning settings
         addChild(player)
         player.position = startPoint.position
         player.zPosition = 1
-        player.physicsBody?.categoryBitMask = 2
+        player.physicsBody?.categoryBitMask = PhysicsCategory.Penguin
         player.physicsBody?.collisionBitMask = 3
         player.scale(to: CGSize(width: 30, height: 30))
         physicsWorld.contactDelegate = self
+        
+        //Enemy positioning settings
+        addChild(enemy)
+        enemy.position = enemyStartPoint.position
+        enemy.zPosition = 1
+        enemy.physicsBody?.categoryBitMask = PhysicsCategory.Bear
+        enemy.physicsBody?.collisionBitMask = PhysicsCategory.Penguin | PhysicsCategory.Bear180TurnNode | PhysicsCategory.Bear90TurnNode
         
         //collects all the childNodes available in the scene
         enumerateChildNodes(withName: "//*"){ node, _ in
@@ -83,6 +95,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //Unwraps the Rocktile map to make it available for Physics
         rockTileMap = childNode(withName: "Rock") as? SKTileMapNode
         setupObstaclePhysics()
+        
     }
     
     //When contact is made checks to see what two objects connected and fires accordingly

@@ -36,6 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var player = Player()
     var canMove = true //lets the player move if it is time to
     var isMoving = false //tells the movement func if the player is already moving
+    var contactMade = false
     var currentLevel: Int = 0 //Conntrols the games level
     
     //Timers
@@ -96,6 +97,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("Contact Made!")
           player.stop()
             isMoving = false
+            contactMade = true
+        }
+        else {
+            contactMade = false
         }
         
         
@@ -160,7 +165,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if buttonName == "Slide"
         {
-            if !isMoving { //protects from the player cheating and moving while on the path
+            if !isMoving && !contactMade { //protects from the player cheating and moving while on the path
             player.move()
             isMoving = true
             }

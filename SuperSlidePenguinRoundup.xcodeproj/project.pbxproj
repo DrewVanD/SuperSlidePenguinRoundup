@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A0EFFFB20D3299800D8CA01 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0EFFFA20D3299800D8CA01 /* ButtonNode.swift */; };
+		3A3F1ED020E1540800F450B3 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F1ECF20E1540800F450B3 /* Enemy.swift */; };
 		3A42251E20D452650035C793 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A42251220D452630035C793 /* CGFloat+Extensions.swift */; };
 		3A42251F20D452650035C793 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A42251320D452630035C793 /* CGPoint+Extensions.swift */; };
 		3A42252020D452650035C793 /* CGVector+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A42251420D452630035C793 /* CGVector+Extensions.swift */; };
@@ -61,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		3A0EFFFA20D3299800D8CA01 /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
+		3A3F1ECF20E1540800F450B3 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		3A42251220D452630035C793 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		3A42251320D452630035C793 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		3A42251420D452630035C793 /* CGVector+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGVector+Extensions.swift"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				3A54258D20C89AAA00BD3E55 /* Player.swift */,
+				3A3F1ECF20E1540800F450B3 /* Enemy.swift */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				3A54258B20C8989800BD3E55 /* Extensions.swift in Sources */,
 				3A0EFFFB20D3299800D8CA01 /* ButtonNode.swift in Sources */,
 				3A42252720D452650035C793 /* SKTEffects.swift in Sources */,
+				3A3F1ED020E1540800F450B3 /* Enemy.swift in Sources */,
 				3A42252120D452650035C793 /* Int+Extensions.swift in Sources */,
 				3A42252920D452650035C793 /* Vector3.swift in Sources */,
 				3A42252420D452650035C793 /* SKColor+Extensions.swift in Sources */,

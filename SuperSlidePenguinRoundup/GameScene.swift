@@ -24,7 +24,9 @@ struct PhysicsCategory{ //set the the physics Masks
     static let Rock: UInt32 = 0b1 //1
     static let Penguin: UInt32 = 0b10 //2
     static let BabyPenguin: UInt32 = 0b100 //4
-    static let Finish: UInt32 = 0b1000 //8
+    static let Bear: UInt32 = 0b1000 //8
+    static let Bear180TurnNode: UInt32 = 0b10000 //16
+    static let Bear90TurnNode: UInt32 = 0b100000 // 32
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {

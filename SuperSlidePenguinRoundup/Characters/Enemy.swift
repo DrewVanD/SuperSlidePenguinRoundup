@@ -9,7 +9,7 @@
 import SpriteKit
 
 enum EnemySettings {
-    static let enemySpeed: CGFloat = 200.0
+    static let enemySpeed: CGFloat = 300.0
 }
 
 class Enemy: SKSpriteNode {
@@ -30,7 +30,6 @@ class Enemy: SKSpriteNode {
         physicsBody?.allowsRotation = false
         physicsBody?.affectedByGravity = false
         physicsBody?.categoryBitMask = PhysicsCategory.Bear
-        physicsBody?.collisionBitMask = PhysicsCategory.Penguin | PhysicsCategory.Bear90TurnNode | PhysicsCategory.Bear180TurnNode
         physicsBody?.contactTestBitMask = PhysicsCategory.Penguin | PhysicsCategory.Bear90TurnNode | PhysicsCategory.Bear180TurnNode
         
     }

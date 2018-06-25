@@ -44,6 +44,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //Enemy Variables
     var enemyStartPoint: SKSpriteNode!
     var enemy = Enemy()
+    var Bear180TurnNode: SKSpriteNode?
     
     //Timers
     var lastUpdateTime: TimeInterval = 0
@@ -63,7 +64,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //Finds and unwraps the Spawn point of the player
         startPoint = childNode(withName: "StartPoint") as! SKSpriteNode
         enemyStartPoint = childNode(withName: "enemyStartPoint") as! SKSpriteNode
-        
+        Bear180TurnNode = childNode(withName: "Bear180TurnNode") as? SKSpriteNode
+       
         //Player positioning settings
         addChild(player)
         player.position = startPoint.position
@@ -95,13 +97,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //Unwraps the Rocktile map to make it available for Physics
         rockTileMap = childNode(withName: "Rock") as? SKTileMapNode
         setupObstaclePhysics()
-        
+        enemy.move()
     }
     
     //When contact is made checks to see what two objects connected and fires accordingly
     func didBegin(_ contact: SKPhysicsContact ){
         
         let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        
+        if collision == PhysicsCategory.Bear | PhysicsCategory.Bear180TurnNode {
+            if enemy.zRotation > 3 && enemy.zRotation < 3.2 || enemy.zRotation < -3 && enemy.zRotation > -3.2 {
+                enemy.zRotation = 0
+                enemy.move()
+            }
+            else if enemy.zRotation == 0 {
+                enemy.zRotation = CGFloat(180).degreesToRadians()
+                enemy.move()
+            }
+        }
         
         if collision == PhysicsCategory.Penguin | PhysicsCategory.BabyPenguin {
             print("Win!")
@@ -112,12 +125,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("Contact Made!")
           player.stop()
             isMoving = false
-            contactMade = true
+            
         }
-        else {
-            contactMade = false
-        }
-        
         
     }
     //Camera Follows the player

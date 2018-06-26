@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3A0EFFFB20D3299800D8CA01 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0EFFFA20D3299800D8CA01 /* ButtonNode.swift */; };
-		3A3F1ED020E1540800F450B3 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F1ECF20E1540800F450B3 /* Enemy.swift */; };
 		3A42251E20D452650035C793 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A42251220D452630035C793 /* CGFloat+Extensions.swift */; };
 		3A42251F20D452650035C793 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A42251320D452630035C793 /* CGPoint+Extensions.swift */; };
 		3A42252020D452650035C793 /* CGVector+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A42251420D452630035C793 /* CGVector+Extensions.swift */; };
@@ -23,6 +22,7 @@
 		3A42252920D452650035C793 /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A42251D20D452630035C793 /* Vector3.swift */; };
 		3A54258B20C8989800BD3E55 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A54258A20C8989800BD3E55 /* Extensions.swift */; };
 		3A54258E20C89AAA00BD3E55 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A54258D20C89AAA00BD3E55 /* Player.swift */; };
+		3A5A97B120E284D200AE8290 /* gg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A97B020E284D200AE8290 /* gg.mp3 */; };
 		3A86F13720DC11EA00282BC1 /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A86F13320DC11E900282BC1 /* Level2.sks */; };
 		3A86F13820DC11EA00282BC1 /* Level4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A86F13420DC11E900282BC1 /* Level4.sks */; };
 		3A86F13920DC11EA00282BC1 /* Level3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A86F13520DC11EA00282BC1 /* Level3.sks */; };
@@ -62,7 +62,6 @@
 
 /* Begin PBXFileReference section */
 		3A0EFFFA20D3299800D8CA01 /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
-		3A3F1ECF20E1540800F450B3 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		3A42251220D452630035C793 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		3A42251320D452630035C793 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		3A42251420D452630035C793 /* CGVector+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGVector+Extensions.swift"; sourceTree = "<group>"; };
@@ -77,6 +76,7 @@
 		3A42251D20D452630035C793 /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
 		3A54258A20C8989800BD3E55 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3A54258D20C89AAA00BD3E55 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		3A5A97B020E284D200AE8290 /* gg.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = gg.mp3; path = SuperSlidePenguinRoundup/gg.mp3; sourceTree = SOURCE_ROOT; };
 		3A86F13320DC11E900282BC1 /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level2.sks; sourceTree = "<group>"; };
 		3A86F13420DC11E900282BC1 /* Level4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level4.sks; sourceTree = "<group>"; };
 		3A86F13520DC11EA00282BC1 /* Level3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level3.sks; sourceTree = "<group>"; };
@@ -130,6 +130,7 @@
 		3A1C75D020D2F49C0043FF3B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				3A5A97AF20E284A700AE8290 /* Sounds */,
 				3AFBE4D820DB4D2200AADAF6 /* Drews Levels */,
 				3AFBE4D620DB4D1C00AADAF6 /* Robs Levels */,
 				3AFBE4D720DB4D1F00AADAF6 /* Lukes Levels */,
@@ -161,9 +162,16 @@
 			isa = PBXGroup;
 			children = (
 				3A54258D20C89AAA00BD3E55 /* Player.swift */,
-				3A3F1ECF20E1540800F450B3 /* Enemy.swift */,
 			);
 			path = Characters;
+			sourceTree = "<group>";
+		};
+		3A5A97AF20E284A700AE8290 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				3A5A97B020E284D200AE8290 /* gg.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		3A86F13B20DC12D300282BC1 /* Sunnessas Levels */ = {
@@ -337,6 +345,7 @@
 				3A86F14720DC12ED00282BC1 /* Level21.sks in Resources */,
 				3A86F13920DC11EA00282BC1 /* Level3.sks in Resources */,
 				3AFBE4CC20DB112C00AADAF6 /* Level26.sks in Resources */,
+				3A5A97B120E284D200AE8290 /* gg.mp3 in Resources */,
 				3AFBE4CD20DB112C00AADAF6 /* Level15.sks in Resources */,
 				3A99695F20C75E2A007F6255 /* LaunchScreen.storyboard in Resources */,
 				3AFBE4D420DB112C00AADAF6 /* Level13.sks in Resources */,
@@ -377,7 +386,6 @@
 				3A54258B20C8989800BD3E55 /* Extensions.swift in Sources */,
 				3A0EFFFB20D3299800D8CA01 /* ButtonNode.swift in Sources */,
 				3A42252720D452650035C793 /* SKTEffects.swift in Sources */,
-				3A3F1ED020E1540800F450B3 /* Enemy.swift in Sources */,
 				3A42252120D452650035C793 /* Int+Extensions.swift in Sources */,
 				3A42252920D452650035C793 /* Vector3.swift in Sources */,
 				3A42252420D452650035C793 /* SKColor+Extensions.swift in Sources */,

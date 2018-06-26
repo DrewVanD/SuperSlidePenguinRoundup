@@ -25,8 +25,6 @@ struct PhysicsCategory{ //set the the physics Masks
     static let Penguin: UInt32 = 0b10 //2
     static let BabyPenguin: UInt32 = 0b100 //4
     static let Bear: UInt32 = 0b1000 //8
-    static let Bear180TurnNode: UInt32 = 0b10000 //16
-    static let Bear90TurnNode: UInt32 = 0b100000 // 32
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -40,11 +38,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var isMoving = false //tells the movement func if the player is already moving
     var contactMade = false
     var currentLevel: Int = 0 //Conntrols the games level
-    
-    //Enemy Variables
-    var enemyStartPoint: SKSpriteNode!
-    var enemy = Enemy()
-    var Bear180TurnNode: SKSpriteNode?
+ 
     
     //Timers
     var lastUpdateTime: TimeInterval = 0
@@ -63,8 +57,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //Finds and unwraps the Spawn point of the player
         startPoint = childNode(withName: "StartPoint") as! SKSpriteNode
-        enemyStartPoint = childNode(withName: "enemyStartPoint") as! SKSpriteNode
-        Bear180TurnNode = childNode(withName: "Bear180TurnNode") as? SKSpriteNode
+
        
         //Player positioning settings
         addChild(player)
@@ -75,12 +68,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.scale(to: CGSize(width: 30, height: 30))
         physicsWorld.contactDelegate = self
         
-        //Enemy positioning settings
-        addChild(enemy)
-        enemy.position = enemyStartPoint.position
-        enemy.zPosition = 1
-        enemy.physicsBody?.categoryBitMask = PhysicsCategory.Bear
-        enemy.physicsBody?.collisionBitMask = PhysicsCategory.Penguin | PhysicsCategory.Bear180TurnNode | PhysicsCategory.Bear90TurnNode
         
         //collects all the childNodes available in the scene
         enumerateChildNodes(withName: "//*"){ node, _ in
@@ -97,7 +84,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //Unwraps the Rocktile map to make it available for Physics
         rockTileMap = childNode(withName: "Rock") as? SKTileMapNode
         setupObstaclePhysics()
-        enemy.move()
+        
     }
     
     //When contact is made checks to see what two objects connected and fires accordingly
@@ -105,15 +92,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
-        if collision == PhysicsCategory.Bear | PhysicsCategory.Bear180TurnNode {
-            if enemy.zRotation > 3 && enemy.zRotation < 3.2 || enemy.zRotation < -3 && enemy.zRotation > -3.2 {
-                enemy.zRotation = 0
-                enemy.move()
-            }
-            else if enemy.zRotation == 0 {
-                enemy.zRotation = CGFloat(180).degreesToRadians()
-                enemy.move()
-            }
+        if collision == PhysicsCategory.Penguin | PhysicsCategory.Bear {
+            print("Lose!")
+            lose()
         }
         
         if collision == PhysicsCategory.Penguin | PhysicsCategory.BabyPenguin {
@@ -123,7 +104,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if collision == PhysicsCategory.Penguin | PhysicsCategory.Rock{
         print("Contact Made!")
-          player.stop()
+            if player.zRotation == 180{
+                player.position.y += 2
+            }
+            else if player.zRotation == 0{
+                player.position.y -= 2
+            }
+            if player.zRotation == 90 {
+                player.position.x += 2
+            }
+            else if player.zRotation == -90 {
+                player.position.x -= 2
+            }
+            player.stop()
             isMoving = false
             
         }
@@ -137,6 +130,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let playerConstraint = SKConstraint.distance(zeroDistance, to: player)
         
         camera.constraints = [playerConstraint]
+
     }
     //Goes through the Rock Tile Map and gives each tile its own physics body
     func setupObstaclePhysics(){
@@ -189,7 +183,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if buttonName == "Slide"
         {
-            if !isMoving && !contactMade { //protects from the player cheating and moving while on the path
+            if !isMoving { //protects from the player cheating and moving while on the path
             player.move()
             isMoving = true
             }
@@ -198,8 +192,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func win() { //present message and fire newGame() after 3 sec
-        inGameMessage(text: "You Win, Buddy!")
+        inGameMessage(text: "Congrats")
       run(SKAction.afterDelay(3, runBlock: newGame))
+    }
+    
+    func lose() {
+        var background: SKSpriteNode
+        background = SKSpriteNode(imageNamed: "gameover")
+        run(SKAction.playSoundFileNamed("gg", waitForCompletion: false))
+        background.position = CGPoint(x: player.position.x, y: player.position.y)
+        //background.position = CGPoint(x: (camera?.frame.width)! / 2, y: (camera?.frame.height)! / 2)
+        background.scale(to: CGSize(width: 667, height: 375))
+        background.zPosition = 100
+        addChild(background)
+        currentLevel -= 1
+        run(SKAction.afterDelay(3, runBlock: newGame))
     }
     
     func inGameMessage(text:String){ // Shows message to the player

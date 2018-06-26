@@ -38,6 +38,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var isMoving = false //tells the movement func if the player is already moving
     var contactMade = false
     var currentLevel: Int = 0 //Conntrols the games level
+    var gameOver = false
  
     
     //Timers
@@ -94,7 +95,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if collision == PhysicsCategory.Penguin | PhysicsCategory.Bear {
             print("Lose!")
+            
+            player.stop()
             lose()
+            gameOver = true
+            
         }
         
         if collision == PhysicsCategory.Penguin | PhysicsCategory.BabyPenguin {
@@ -128,9 +133,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let zeroDistance = SKRange(constantValue: 0)
         let playerConstraint = SKConstraint.distance(zeroDistance, to: player)
-        
-        camera.constraints = [playerConstraint]
-
+     
+            camera.constraints = [playerConstraint]
     }
     //Goes through the Rock Tile Map and gives each tile its own physics body
     func setupObstaclePhysics(){
@@ -197,16 +201,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func lose() {
-        var background: SKSpriteNode
-        background = SKSpriteNode(imageNamed: "gameover")
-        run(SKAction.playSoundFileNamed("gg", waitForCompletion: false))
-        background.position = CGPoint(x: player.position.x, y: player.position.y)
-        //background.position = CGPoint(x: (camera?.frame.width)! / 2, y: (camera?.frame.height)! / 2)
-        background.scale(to: CGSize(width: 667, height: 375))
-        background.zPosition = 100
-        addChild(background)
-        currentLevel -= 1
-        run(SKAction.afterDelay(3, runBlock: newGame))
+        if !gameOver {
+            camera?.constraints?.removeAll()
+            var background: SKSpriteNode
+            background = SKSpriteNode(imageNamed: "gameover")
+            run(SKAction.playSoundFileNamed("gg", waitForCompletion: false))
+            background.position = CGPoint(x: (camera?.position.x)!, y: (camera?.position.y)!)
+            //background.position = CGPoint(x: (camera?.frame.width)! / 2, y: (camera?.frame.height)! / 2)
+            background.scale(to: CGSize(width: 667, height: 375))
+            background.zPosition = 100
+            addChild(background)
+            currentLevel -= 1
+            run(SKAction.afterDelay(3, runBlock: newGame))
+        }
     }
     
     func inGameMessage(text:String){ // Shows message to the player

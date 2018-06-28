@@ -25,6 +25,7 @@ struct PhysicsCategory{ //set the the physics Masks
     static let Penguin: UInt32 = 0b10 //2
     static let BabyPenguin: UInt32 = 0b100 //4
     static let Bear: UInt32 = 0b1000 //8
+    static let Fish: UInt32 = 0b10000 //16
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -39,7 +40,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var contactMade = false
     var currentLevel: Int = 0 //Conntrols the games level
     var gameOver = false
- 
+    var fish1: SKSpriteNode!
+    var fish2: SKSpriteNode!
+    var fish3: SKSpriteNode!
+    var fish1Node: SKSpriteNode!
+    var fish2Node: SKSpriteNode!
+    var fish3Node: SKSpriteNode!
+    var fish: Int = 0
+    var fishCollected = false
+    var fishNumLabel: SKLabelNode!
     
     //Timers
     var lastUpdateTime: TimeInterval = 0
@@ -65,10 +74,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.position = startPoint.position
         player.zPosition = 1
         player.physicsBody?.categoryBitMask = PhysicsCategory.Penguin
-        player.physicsBody?.collisionBitMask = 3
+        player.physicsBody?.collisionBitMask = PhysicsCategory.Rock | PhysicsCategory.BabyPenguin | PhysicsCategory.Bear
+        player.physicsBody?.contactTestBitMask = PhysicsCategory.Rock | PhysicsCategory.BabyPenguin | PhysicsCategory.Bear | PhysicsCategory.Fish
         player.scale(to: CGSize(width: 30, height: 30))
         physicsWorld.contactDelegate = self
         
+        //Fish
+    
+        fish1 = childNode(withName: "fish1") as! SKSpriteNode
+        fish1.physicsBody?.categoryBitMask = PhysicsCategory.Fish
+        fish1.physicsBody?.contactTestBitMask = PhysicsCategory.Penguin
+        fish1.zPosition = 1
+        fish2 = childNode(withName: "fish2") as! SKSpriteNode
+        fish2.physicsBody?.categoryBitMask = PhysicsCategory.Fish
+        fish2.physicsBody?.contactTestBitMask = PhysicsCategory.Penguin
+        fish2.zPosition = 1
+        fish3 = childNode(withName: "fish3") as! SKSpriteNode
+        fish3.physicsBody?.categoryBitMask = PhysicsCategory.Fish
+        fish3.physicsBody?.contactTestBitMask = PhysicsCategory.Penguin
+        fish3.zPosition = 1
+        fish1Node = camera?.childNode(withName: "fish1Node") as! SKSpriteNode
+        fish2Node = camera?.childNode(withName: "fish2Node") as! SKSpriteNode
+        fish3Node = camera?.childNode(withName: "fish3Node") as! SKSpriteNode
+        
+        
+        //sets up and observers to read when a buttonNode has been clicked
+        NotificationCenter.default.addObserver(self, selector: #selector(playerMovement), name: Notification.Name(ButtonNode.buttonTappedNotification), object: nil)
         
         //collects all the childNodes available in the scene
         enumerateChildNodes(withName: "//*"){ node, _ in
@@ -77,11 +108,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         
-        //sets up and observers to read when a buttonNode has been clicked
-        NotificationCenter.default.addObserver(self, selector: #selector(playerMovement), name: Notification.Name(ButtonNode.buttonTappedNotification), object: nil)
-        
         setupCamera()
-        
         //Unwraps the Rocktile map to make it available for Physics
         rockTileMap = childNode(withName: "Rock") as? SKTileMapNode
         setupObstaclePhysics()
@@ -104,7 +131,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if collision == PhysicsCategory.Penguin | PhysicsCategory.BabyPenguin {
             print("Win!")
-            win()
+            player.stop()
+            if fishCollected {
+                win()
+            }
+            else {
+                inGameMessage(text: "Your baby is hungry get more fish!")
+            }
         }
         
         if collision == PhysicsCategory.Penguin | PhysicsCategory.Rock{
@@ -126,6 +159,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         
+        if collision == PhysicsCategory.Penguin | PhysicsCategory.Fish {
+            print("FISH!")
+            
+            if contact.bodyB.node?.name == "fish1" {
+                fish1.run(SKAction.hide())
+                fish1Node.run(SKAction.unhide())
+                fish += 1
+                print("\(fish)")
+            }
+            if contact.bodyB.node?.name == "fish2" {
+                fish2.run(SKAction.hide())
+                fish2Node.run(SKAction.unhide())
+                fish += 1
+                print("\(fish)")
+            }
+            if contact.bodyB.node?.name == "fish3" {
+                fish3.run(SKAction.hide())
+                fish3Node.run(SKAction.unhide())
+                fish += 1
+                print("\(fish)")
+            }
+            if fish == 3 {
+                fishCollected = true
+            }
+        }
+        
     }
     //Camera Follows the player
     func setupCamera(){
@@ -135,6 +194,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let playerConstraint = SKConstraint.distance(zeroDistance, to: player)
      
             camera.constraints = [playerConstraint]
+        
+        fish1Node.run(SKAction.hide())
+        fish2Node.run(SKAction.hide())
+        fish3Node.run(SKAction.hide())
     }
     //Goes through the Rock Tile Map and gives each tile its own physics body
     func setupObstaclePhysics(){
@@ -159,7 +222,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         rockTileMap.physicsBody?.contactTestBitMask = PhysicsCategory.Penguin
         
     }
-    
+
     //Tells setupObstaclePhysics() what the definition of a single node is
     func tile(in tileMap: SKTileMapNode, at coordinates: TileCoordinates) -> SKTileDefinition? {
         return tileMap.tileDefinition(atColumn: coordinates.column, row: coordinates.row)
@@ -174,16 +237,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print(buttonName)
         
         if buttonName == "Up" {
-            player.zRotation = CGFloat(180).degreesToRadians()
+            if !isMoving {
+                player.zRotation = CGFloat(180).degreesToRadians()
+            }
         }
         else if buttonName == "Down"{
-            player.zRotation = CGFloat(0).degreesToRadians()
+            if !isMoving {
+                player.zRotation = CGFloat(0).degreesToRadians()
+            }
         }
         else if buttonName == "Left"{
-            player.zRotation = CGFloat(-90).degreesToRadians()
+            if !isMoving {
+                player.zRotation = CGFloat(-90).degreesToRadians()
+            }
         }
         else if buttonName == "Right"{
-            player.zRotation = CGFloat(90).degreesToRadians()
+            if !isMoving {
+                player.zRotation = CGFloat(90).degreesToRadians()
+            }
         }
         else if buttonName == "Slide"
         {
@@ -197,6 +268,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func win() { //present message and fire newGame() after 3 sec
         inGameMessage(text: "Congrats")
+        
       run(SKAction.afterDelay(3, runBlock: newGame))
     }
     
@@ -219,6 +291,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func inGameMessage(text:String){ // Shows message to the player
         let message = MessageNode(message: text)
         message.position = CGPoint(x: frame.midX, y: frame.midY)
+
         addChild(message)
     }
 

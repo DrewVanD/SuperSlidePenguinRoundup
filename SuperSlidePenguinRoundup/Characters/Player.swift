@@ -34,8 +34,8 @@ class Player: SKSpriteNode {
         physicsBody?.allowsRotation = false
         physicsBody?.affectedByGravity = false
         physicsBody?.categoryBitMask = PhysicsCategory.Penguin
-        physicsBody?.collisionBitMask = PhysicsCategory.Rock | PhysicsCategory.BabyPenguin | PhysicsCategory.Bear
-        physicsBody?.contactTestBitMask = PhysicsCategory.Rock | PhysicsCategory.BabyPenguin | PhysicsCategory.Bear
+        physicsBody?.collisionBitMask = PhysicsCategory.Rock | PhysicsCategory.BabyPenguin | PhysicsCategory.Bear | PhysicsCategory.Fish
+        physicsBody?.contactTestBitMask = PhysicsCategory.Rock | PhysicsCategory.BabyPenguin | PhysicsCategory.Bear | PhysicsCategory.Fish
         
     }
     

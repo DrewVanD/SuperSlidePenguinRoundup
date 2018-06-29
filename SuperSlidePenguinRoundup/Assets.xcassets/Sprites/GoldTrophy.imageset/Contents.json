@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "PenguinIcon.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "GoldTrophy.png",
       "scale" : "2x"
     },
     {

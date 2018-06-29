@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3A0EFFFB20D3299800D8CA01 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0EFFFA20D3299800D8CA01 /* ButtonNode.swift */; };
 		3A108A2D20E6730A00860FE0 /* Level10.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A108A2C20E6730A00860FE0 /* Level10.sks */; };
-		3A41FB9E20E6C7CD00C95067 /* SunnessasTIles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A41FB9D20E6C7CD00C95067 /* SunnessasTIles.sks */; };
+		3A41FB9E20E6C7CD00C95067 /* SunnessasTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A41FB9D20E6C7CD00C95067 /* SunnessasTiles.sks */; };
 		3A42251E20D452650035C793 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A42251220D452630035C793 /* CGFloat+Extensions.swift */; };
 		3A42251F20D452650035C793 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A42251320D452630035C793 /* CGPoint+Extensions.swift */; };
 		3A42252020D452650035C793 /* CGVector+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A42251420D452630035C793 /* CGVector+Extensions.swift */; };
@@ -68,7 +68,7 @@
 /* Begin PBXFileReference section */
 		3A0EFFFA20D3299800D8CA01 /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
 		3A108A2C20E6730A00860FE0 /* Level10.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level10.sks; sourceTree = "<group>"; };
-		3A41FB9D20E6C7CD00C95067 /* SunnessasTIles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SunnessasTIles.sks; sourceTree = "<group>"; };
+		3A41FB9D20E6C7CD00C95067 /* SunnessasTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SunnessasTiles.sks; sourceTree = "<group>"; };
 		3A42251220D452630035C793 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		3A42251320D452630035C793 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		3A42251420D452630035C793 /* CGVector+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGVector+Extensions.swift"; sourceTree = "<group>"; };
@@ -233,7 +233,7 @@
 				3A1C75D020D2F49C0043FF3B /* Scenes */,
 				3A54258C20C899AC00BD3E55 /* Characters */,
 				3A99694E20C75E24007F6255 /* AppDelegate.swift */,
-				3A41FB9D20E6C7CD00C95067 /* SunnessasTIles.sks */,
+				3A41FB9D20E6C7CD00C95067 /* SunnessasTiles.sks */,
 				3A99696620C75E77007F6255 /* MyTileSet.sks */,
 				3A99695220C75E24007F6255 /* Actions.sks */,
 				3A99695420C75E24007F6255 /* GameScene.swift */,
@@ -316,7 +316,7 @@
 				3A7C50A020E6BE71007CD9AA /* Level15.sks in Resources */,
 				3A7C509720E6BE71007CD9AA /* Level14.sks in Resources */,
 				3A7C50A820E6BE71007CD9AA /* Level21.sks in Resources */,
-				3A41FB9E20E6C7CD00C95067 /* SunnessasTIles.sks in Resources */,
+				3A41FB9E20E6C7CD00C95067 /* SunnessasTiles.sks in Resources */,
 				3A99696720C75E77007F6255 /* MyTileSet.sks in Resources */,
 				3A99695A20C75E24007F6255 /* Main.storyboard in Resources */,
 				3A7C507B20E6A47A007CD9AA /* Ice_cavern.m4a in Resources */,

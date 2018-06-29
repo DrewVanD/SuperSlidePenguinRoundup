@@ -96,6 +96,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         fish1Node = camera?.childNode(withName: "fish1Node") as! SKSpriteNode
         fish2Node = camera?.childNode(withName: "fish2Node") as! SKSpriteNode
         fish3Node = camera?.childNode(withName: "fish3Node") as! SKSpriteNode
+        //fishNumLabel = camera?.childNode(withName: "fishNumLabel") as! SKLabelNode
+        //fishNumLabel.text = String("\(fish)")
+        //addChild(fishNumLabel)
         
         
         //sets up and observers to read when a buttonNode has been clicked
@@ -107,7 +110,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 interactiveNode.didMoveToScene()
             }
         }
-        
+        //playBackgroundMusic(filename: "Ice_cavern.m4a")
         setupCamera()
         //Unwraps the Rocktile map to make it available for Physics
         rockTileMap = childNode(withName: "Rock") as? SKTileMapNode
@@ -136,7 +139,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 win()
             }
             else {
+                
                 inGameMessage(text: "Your baby is hungry get more fish!")
+                print("messagePrinted")
             }
         }
         
@@ -160,29 +165,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if collision == PhysicsCategory.Penguin | PhysicsCategory.Fish {
-            print("FISH!")
+            //print("FISH!")
             
             if contact.bodyB.node?.name == "fish1" {
                 fish1.run(SKAction.hide())
                 fish1Node.run(SKAction.unhide())
                 fish += 1
-                print("\(fish)")
+                //print("\(fish)")
             }
             if contact.bodyB.node?.name == "fish2" {
                 fish2.run(SKAction.hide())
                 fish2Node.run(SKAction.unhide())
                 fish += 1
-                print("\(fish)")
+                //print("\(fish)")
             }
             if contact.bodyB.node?.name == "fish3" {
                 fish3.run(SKAction.hide())
                 fish3Node.run(SKAction.unhide())
                 fish += 1
-                print("\(fish)")
+               // print("\(fish)")
             }
             if fish == 3 {
                 fishCollected = true
             }
+            //fishNumLabel.removeFromParent()
+            //fishNumLabel.text = String("\(fish)")
+           // addChild(fishNumLabel)
         }
         
     }
@@ -290,9 +298,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func inGameMessage(text:String){ // Shows message to the player
         let message = MessageNode(message: text)
-        message.position = CGPoint(x: frame.midX, y: frame.midY)
+        message.position = CGPoint(x: frame.midX, y: frame.maxY - 30)
 
         addChild(message)
+        print("messageDeleted")
     }
 
     

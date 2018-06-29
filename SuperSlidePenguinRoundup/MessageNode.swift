@@ -11,9 +11,9 @@ import SpriteKit
 class MessageNode: SKLabelNode {
     convenience init(message:String) {
         self.init(fontNamed: "AvenirNext-Regular")
-        
+        //SKAction? = duration
         text = message
-        fontSize = 10.0
+        fontSize = 25.0
         fontColor = SKColor.black
         zPosition = 100
         
@@ -23,13 +23,9 @@ class MessageNode: SKLabelNode {
         front.fontColor = SKColor.white
         front.position = CGPoint(x: -2, y: -2)
         addChild(front)
-        
-        
-        physicsBody = SKPhysicsBody(circleOfRadius: 10)
-        physicsBody!.collisionBitMask = PhysicsCategory.Rock
-        physicsBody!.categoryBitMask = PhysicsCategory.Rock
-        
-        physicsBody!.restitution = 0.7
+        //front.run(SKAction.wait(forDuration: TimeInterval(duration)))
+        //front.removeFromParent()
+    
         
     }
 }

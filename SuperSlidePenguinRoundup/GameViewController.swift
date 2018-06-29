@@ -43,7 +43,7 @@ class GameViewController: UIViewController {
         } else {
             return .all
         }
-    }
+    }                           //get your aluminum hats!!
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

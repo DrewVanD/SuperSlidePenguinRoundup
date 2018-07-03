@@ -55,13 +55,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var deltaTime: TimeInterval = 0
     
     //Changes the Level called by the newGame()
-    class func level(levelNum: Int) -> GameScene? {
-        //let scene = GameScene(fileNamed: "Level\(levelNum)")!
-        let scene = GameScene(fileNamed: "Level\(levelNum)")
-        scene?.currentLevel = levelNum
-        scene?.scaleMode = .aspectFill
-        return scene
-    }
+//    class func level(levelNum: Int) -> GameScene? {
+//        //let scene = GameScene(fileNamed: "Level\(levelNum)")!
+//        let scene = GameScene(fileNamed: "Level\(levelNum)")
+//        scene?.currentLevel = levelNum
+//        scene?.scaleMode = .aspectFill
+//        return scene
+//    }
     
     override func didMove(to view: SKView){
         
@@ -318,12 +318,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func newGame(){ //increments the Levels and ressets the Scene
-        if currentLevel < 7 {
-            currentLevel += 1
-        }
-        else{
-            currentLevel = 1
-        }
-        view!.presentScene(GameScene.level(levelNum: currentLevel))
+        let scene = MainMenuScene(fileNamed: "MainMenu")
+        scene?.scaleMode = .aspectFill
+        view!.presentScene(scene)
     }
 }

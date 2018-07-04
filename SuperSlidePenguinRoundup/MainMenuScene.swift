@@ -61,120 +61,120 @@ class MainMenuScene: SKScene {
             let scene = MainMenuScene(fileNamed: "World4LevelSelect")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Dlevel1" :
+        case "DLevel1" :
             let scene = GameScene(fileNamed: "DLevel1")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
             print("level1")
-        case "Dlevel2" :
+        case "DLevel2" :
             let scene = GameScene(fileNamed: "DLevel2")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Dlevel3" :
+        case "DLevel3" :
             let scene = GameScene(fileNamed: "DLevel3")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Dlevel4" :
+        case "DLevel4" :
             let scene = GameScene(fileNamed: "DLevel4")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Dlevel5" :
+        case "DLevel5" :
             let scene = GameScene(fileNamed: "DLevel5")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Llevel1" :
+        case "LLevel1" :
             let scene = GameScene(fileNamed: "LLevel1")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Llevel2" :
+        case "LLevel2" :
             let scene = GameScene(fileNamed: "LLevel2")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Llevel3" :
+        case "LLevel3" :
             let scene = GameScene(fileNamed: "LLevel3")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Llevel4" :
+        case "LLevel4" :
             let scene = GameScene(fileNamed: "LLevel4")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Llevel5" :
+        case "LLevel5" :
             let scene = GameScene(fileNamed: "LLevel5")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Llevel6" :
+        case "LLevel6" :
             let scene = GameScene(fileNamed: "LLevel6")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Llevel7" :
+        case "LLevel7" :
             let scene = GameScene(fileNamed: "LLevel7")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Llevel8" :
+        case "LLevel8" :
             let scene = GameScene(fileNamed: "LLevel8")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Llevel9" :
+        case "LLevel9" :
             let scene = GameScene(fileNamed: "LLevel9")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Llevel10" :
+        case "LLevel10" :
             let scene = GameScene(fileNamed: "LLevel10")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Llevel11" :
+        case "LLevel11" :
             let scene = GameScene(fileNamed: "LLevel11")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Llevel12" :
+        case "LLevel12" :
             let scene = GameScene(fileNamed: "LLevel12")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Llevel13" :
+        case "LLevel13" :
             let scene = GameScene(fileNamed: "LLevel13")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Slevel1" :
+        case "SLevel1" :
             let scene = GameScene(fileNamed: "SLevel1")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Slevel2" :
+        case "SLevel2" :
             let scene = GameScene(fileNamed: "SLevel2")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Slevel3" :
+        case "SLevel3" :
             let scene = GameScene(fileNamed: "SLevel3")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Slevel4" :
+        case "SLevel4" :
             let scene = GameScene(fileNamed: "SLevel4")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Slevel5" :
+        case "SLevel5" :
             let scene = GameScene(fileNamed: "SLevel5")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Slevel6" :
+        case "SLevel6" :
             let scene = GameScene(fileNamed: "SLevel6")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Rlevel1" :
+        case "RLevel1" :
             let scene = GameScene(fileNamed: "RLevel1")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Rlevel2" :
+        case "RLevel2" :
             let scene = GameScene(fileNamed: "RLevel2")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Rlevel3" :
+        case "RLevel3" :
             let scene = GameScene(fileNamed: "RLevel3")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Rlevel4" :
+        case "RLevel4" :
             let scene = GameScene(fileNamed: "RLevel4")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Rlevel5" :
+        case "RLevel5" :
             let scene = GameScene(fileNamed: "RLevel5")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)

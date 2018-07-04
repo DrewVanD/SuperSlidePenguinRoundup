@@ -38,7 +38,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var canMove = true //lets the player move if it is time to
     var isMoving = false //tells the movement func if the player is already moving
     var contactMade = false
-    var currentLevel: Int = 0 //Conntrols the games level
     var gameOver = false
     var fish1: SKSpriteNode!
     var fish2: SKSpriteNode!
@@ -54,14 +53,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var lastUpdateTime: TimeInterval = 0
     var deltaTime: TimeInterval = 0
     
-    //Changes the Level called by the newGame()
-//    class func level(levelNum: Int) -> GameScene? {
-//        //let scene = GameScene(fileNamed: "Level\(levelNum)")!
-//        let scene = GameScene(fileNamed: "Level\(levelNum)")
-//        scene?.currentLevel = levelNum
-//        scene?.scaleMode = .aspectFill
-//        return scene
-//    }
+
     
     override func didMove(to view: SKView){
         
@@ -268,8 +260,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         {
             if !isMoving { //protects from the player cheating and moving while on the path
             player.move()
+            
             isMoving = true
             }
+        }
+        else if buttonName == "WSBack"
+        {
+            SKTAudio.sharedInstance().pauseBackgroundMusic()
+            let scene = MainMenuScene(fileNamed: "WorldSelect")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
         }
         print(player.zRotation)
     }
@@ -277,7 +277,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func win() { //present message and fire newGame() after 3 sec
         inGameMessage(text: "Congrats")
        SKTAudio.sharedInstance().pauseBackgroundMusic()
-      run(SKAction.afterDelay(3, runBlock: newGame))
+      run(SKAction.afterDelay(3, runBlock: mainMenu))
     }
     
     func lose() {
@@ -292,8 +292,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             background.scale(to: CGSize(width: 667, height: 375))
             background.zPosition = 100
             addChild(background)
-            currentLevel -= 1
-            run(SKAction.afterDelay(3, runBlock: newGame))
+            run(SKAction.afterDelay(3, runBlock: mainMenu))
         }
     }
     
@@ -318,7 +317,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     }
     
-    func newGame(){ //increments the Levels and ressets the Scene
+    func mainMenu(){ //increments the Levels and ressets the Scene
         let scene = MainMenuScene(fileNamed: "MainMenu")
         scene?.scaleMode = .aspectFill
         view!.presentScene(scene)

@@ -88,7 +88,7 @@ public class SKTAudio {
       soundEffectPlayer = nil
     }
     if let player = soundEffectPlayer {
-      player.numberOfLoops = 0
+      player.numberOfLoops = -1
       player.prepareToPlay()
       player.play()
     } else {

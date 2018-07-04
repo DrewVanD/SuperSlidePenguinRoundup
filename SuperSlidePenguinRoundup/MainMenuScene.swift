@@ -82,6 +82,102 @@ class MainMenuScene: SKScene {
             let scene = GameScene(fileNamed: "DLevel5")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
+        case "Llevel1" :
+            let scene = GameScene(fileNamed: "LLevel1")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Llevel2" :
+            let scene = GameScene(fileNamed: "LLevel2")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Llevel3" :
+            let scene = GameScene(fileNamed: "LLevel3")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Llevel4" :
+            let scene = GameScene(fileNamed: "LLevel4")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Llevel5" :
+            let scene = GameScene(fileNamed: "LLevel5")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Llevel6" :
+            let scene = GameScene(fileNamed: "LLevel6")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Llevel7" :
+            let scene = GameScene(fileNamed: "LLevel7")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Llevel8" :
+            let scene = GameScene(fileNamed: "LLevel8")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Llevel9" :
+            let scene = GameScene(fileNamed: "LLevel9")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Llevel10" :
+            let scene = GameScene(fileNamed: "LLevel10")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Llevel11" :
+            let scene = GameScene(fileNamed: "LLevel11")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Llevel12" :
+            let scene = GameScene(fileNamed: "LLevel12")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Llevel13" :
+            let scene = GameScene(fileNamed: "LLevel13")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Slevel1" :
+            let scene = GameScene(fileNamed: "SLevel1")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Slevel2" :
+            let scene = GameScene(fileNamed: "SLevel2")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Slevel3" :
+            let scene = GameScene(fileNamed: "SLevel3")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Slevel4" :
+            let scene = GameScene(fileNamed: "SLevel4")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Slevel5" :
+            let scene = GameScene(fileNamed: "SLevel5")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Slevel6" :
+            let scene = GameScene(fileNamed: "SLevel6")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Rlevel1" :
+            let scene = GameScene(fileNamed: "RLevel1")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Rlevel2" :
+            let scene = GameScene(fileNamed: "RLevel2")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Rlevel3" :
+            let scene = GameScene(fileNamed: "RLevel3")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Rlevel4" :
+            let scene = GameScene(fileNamed: "RLevel4")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Rlevel5" :
+            let scene = GameScene(fileNamed: "RLevel5")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
         default:
             break
         }

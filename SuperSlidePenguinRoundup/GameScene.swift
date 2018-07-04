@@ -110,7 +110,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 interactiveNode.didMoveToScene()
             }
         }
-        //playBackgroundMusic(filename: "Ice_cavern.m4a")
+        SKTAudio.sharedInstance().playBackgroundMusic("Ice_cavern.m4a")
         setupCamera()
         //Unwraps the Rocktile map to make it available for Physics
         rockTileMap = childNode(withName: "Rock") as? SKTileMapNode
@@ -276,7 +276,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func win() { //present message and fire newGame() after 3 sec
         inGameMessage(text: "Congrats")
-        
+       SKTAudio.sharedInstance().pauseBackgroundMusic()
       run(SKAction.afterDelay(3, runBlock: newGame))
     }
     
@@ -285,6 +285,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             camera?.constraints?.removeAll()
             var background: SKSpriteNode
             background = SKSpriteNode(imageNamed: "gameover")
+            SKTAudio.sharedInstance().pauseBackgroundMusic()
             run(SKAction.playSoundFileNamed("gg", waitForCompletion: false))
             background.position = CGPoint(x: (camera?.position.x)!, y: (camera?.position.y)!)
             //background.position = CGPoint(x: (camera?.frame.width)! / 2, y: (camera?.frame.height)! / 2)

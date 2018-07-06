@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0C4A0920EE42F400E63C66 /* Story.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A0C4A0820EE42F400E63C66 /* Story.sks */; };
+		3A0C4A0B20EEB9FC00E63C66 /* StoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0C4A0A20EEB9FC00E63C66 /* StoryScene.swift */; };
+		3A0C4A0D20EFDBFF00E63C66 /* Skate.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3A0C4A0C20EFDBFF00E63C66 /* Skate.wav */; };
+		3A0C4A0F20EFE38800E63C66 /* Credits.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A0C4A0E20EFE38800E63C66 /* Credits.sks */; };
 		3A0EFFFB20D3299800D8CA01 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0EFFFA20D3299800D8CA01 /* ButtonNode.swift */; };
 		3A108A2D20E6730A00860FE0 /* DLevel5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A108A2C20E6730A00860FE0 /* DLevel5.sks */; };
 		3A41FB9E20E6C7CD00C95067 /* SunnessasTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A41FB9D20E6C7CD00C95067 /* SunnessasTiles.sks */; };
@@ -73,6 +77,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A0C4A0820EE42F400E63C66 /* Story.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Story.sks; sourceTree = "<group>"; };
+		3A0C4A0A20EEB9FC00E63C66 /* StoryScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryScene.swift; sourceTree = "<group>"; };
+		3A0C4A0C20EFDBFF00E63C66 /* Skate.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Skate.wav; sourceTree = "<group>"; };
+		3A0C4A0E20EFE38800E63C66 /* Credits.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Credits.sks; sourceTree = "<group>"; };
 		3A0EFFFA20D3299800D8CA01 /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
 		3A108A2C20E6730A00860FE0 /* DLevel5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DLevel5.sks; sourceTree = "<group>"; };
 		3A41FB9D20E6C7CD00C95067 /* SunnessasTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SunnessasTiles.sks; sourceTree = "<group>"; };
@@ -156,6 +164,8 @@
 			children = (
 				3A83B52E20EBE43800F86ADB /* MainMenu.sks */,
 				3A83B53020EBE8B000F86ADB /* WorldSelect.sks */,
+				3A0C4A0820EE42F400E63C66 /* Story.sks */,
+				3A0C4A0E20EFE38800E63C66 /* Credits.sks */,
 				3A83B53620EBFBCD00F86ADB /* World1LevelSelect.sks */,
 				3A83B53820EBFBE300F86ADB /* World2LevelSelect.sks */,
 				3A83B53A20EBFC3500F86ADB /* World3LevelSelect.sks */,
@@ -198,6 +208,7 @@
 		3A5A97AF20E284A700AE8290 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				3A0C4A0C20EFDBFF00E63C66 /* Skate.wav */,
 				3A7C507A20E6A479007CD9AA /* Ice_cavern.m4a */,
 				3A5A97B020E284D200AE8290 /* gg.mp3 */,
 			);
@@ -288,6 +299,7 @@
 				3A41FB9D20E6C7CD00C95067 /* SunnessasTiles.sks */,
 				3A99696620C75E77007F6255 /* MyTileSet.sks */,
 				3A99695220C75E24007F6255 /* Actions.sks */,
+				3A0C4A0A20EEB9FC00E63C66 /* StoryScene.swift */,
 				3A99695420C75E24007F6255 /* GameScene.swift */,
 				3A83B53420EBF15D00F86ADB /* MainMenuScene.swift */,
 				3A99695620C75E24007F6255 /* GameViewController.swift */,
@@ -391,11 +403,14 @@
 				3A7C50A920E6BE71007CD9AA /* SLevel3.sks in Resources */,
 				3A7C50AB20E6BE71007CD9AA /* RLevel3.sks in Resources */,
 				3A7C50A420E6BE71007CD9AA /* SLevel4.sks in Resources */,
+				3A0C4A0D20EFDBFF00E63C66 /* Skate.wav in Resources */,
 				3A7C509D20E6BE71007CD9AA /* LLevel13.sks in Resources */,
 				3A5A97B120E284D200AE8290 /* gg.mp3 in Resources */,
 				3A99695F20C75E2A007F6255 /* LaunchScreen.storyboard in Resources */,
 				3A83B53120EBE8B000F86ADB /* WorldSelect.sks in Resources */,
 				3A7C509F20E6BE71007CD9AA /* LLevel10.sks in Resources */,
+				3A0C4A0F20EFE38800E63C66 /* Credits.sks in Resources */,
+				3A0C4A0920EE42F400E63C66 /* Story.sks in Resources */,
 				3A7C50AD20E6BE71007CD9AA /* LLevel9.sks in Resources */,
 				3A7C509E20E6BE71007CD9AA /* LLevel3.sks in Resources */,
 				3A7C509A20E6BE71007CD9AA /* RLevel4.sks in Resources */,
@@ -427,6 +442,7 @@
 				3A42252620D452650035C793 /* SKTAudio.swift in Sources */,
 				3A54258E20C89AAA00BD3E55 /* Player.swift in Sources */,
 				3A83B53520EBF15D00F86ADB /* MainMenuScene.swift in Sources */,
+				3A0C4A0B20EEB9FC00E63C66 /* StoryScene.swift in Sources */,
 				3A42252520D452650035C793 /* SKNode+Extensions.swift in Sources */,
 				3A42252220D452650035C793 /* SKAction+Extensions.swift in Sources */,
 				3A42252320D452650035C793 /* SKAction+SpecialEffects.swift in Sources */,

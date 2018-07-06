@@ -260,7 +260,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         {
             if !isMoving { //protects from the player cheating and moving while on the path
             player.move()
-            
+            SKTAudio.sharedInstance().playSoundEffect("Skate.wav")
             isMoving = true
             }
         }

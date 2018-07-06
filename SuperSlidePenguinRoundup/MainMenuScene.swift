@@ -35,8 +35,14 @@ class MainMenuScene: SKScene {
             let scene = MainMenuScene(fileNamed: "WorldSelect")
             scene?.scaleMode = .aspectFill
             view!.presentScene(scene)
-        case "Info" : break
-        case "Options" : break
+        case "Story" :
+            let scene = StoryScene(fileNamed: "Story")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
+        case "Credits" :
+            let scene = StoryScene(fileNamed: "Credits")
+            scene?.scaleMode = .aspectFill
+            view!.presentScene(scene)
         case "MMBack" :
             let scene = MainMenuScene(fileNamed: "MainMenu")
             scene?.scaleMode = .aspectFill
